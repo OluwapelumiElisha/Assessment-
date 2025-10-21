@@ -2,6 +2,7 @@ import { TrendingUp } from "lucide-react";
 import { useEffect, useState } from "react";
 import successTrans from '../assets/Success.svg'
 import pendingTrans from '../assets/Pending.svg'
+import { Skeleton } from "./ui/skeleton";
 
 
 export const TransactionList = () => {
@@ -25,7 +26,31 @@ export const TransactionList = () => {
     fetchTransactions();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+    if (loading) {
+    // Skeleton loader while fetching
+    return (
+      <div className="space-y-3">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <div
+            key={i}
+            className="flex items-center justify-between p-4 bg-transaction-bg rounded-xl"
+          >
+            <div className="flex items-center gap-4">
+              <Skeleton className="w-10 h-10 rounded-full" />
+              <div className="space-y-2">
+                <Skeleton className="w-32 h-3" />
+                <Skeleton className="w-24 h-3" />
+              </div>
+            </div>
+            <div className="text-right space-y-2">
+              <Skeleton className="w-16 h-3 ml-auto" />
+              <Skeleton className="w-12 h-3 ml-auto" />
+            </div>
+          </div>
+        ))}
+      </div>
+    )
+  }
 
 
   return (

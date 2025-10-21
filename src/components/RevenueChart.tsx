@@ -4,15 +4,12 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 
 export const RevenueChart = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
-  // const [loading, setLoading] = useState(true);
 
  useEffect(() => {
   async function fetchTransactions() {
     try {
       const res = await fetch("https://fe-task-api.mainstack.io/transactions");
       const data = await res.json();
-
-      // Map and format the data for your chart
       const chartData = data.map((tx: any) => ({
         date: new Date(tx.date).toLocaleDateString("en-US", {
           month: "short",
