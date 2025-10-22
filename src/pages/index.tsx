@@ -14,14 +14,14 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="max-w-[1200px] mx-auto px-6 py-8 mt-28">
+      <main className="max-w-[1200px] mx-auto px-6 py-8 md:mt-28 mt-12">
         <div className="grid lg:grid-cols-[1fr_300px] gap-8">
           <div className="space-y-6">
             <div className="bg-card p-8">
-              <div className="flex items-center justify-between mb-8">
-                <div>
+              <div className="md:flex block items-center justify-between mb-8">
+                <div className="">
                   <p className="text-sm text-muted-foreground mb-2 text-[#56616B]">Available Balance</p>
-                  <h1 className="text-4xl font-bold text-[#131316]">USD 120,500.00</h1>
+                  <h1 className="md:text-4xl text-lg font-bold text-[#131316]">USD 120,500.00</h1>
                 </div>
                 <Button size="lg" className="px-8">
                   Withdraw
@@ -76,33 +76,40 @@ const Index = () => {
       </main>
 
       <FilterModal open={filterOpen} onOpenChange={setFilterOpen} />
-      <div className="bg-card rounded-2xl p-8 shadow-sm w-[85%] m-auto">
-              <div className="flex items-center justify-between mb-6">
-                <div>
-                  <h2 className="text-xl font-semibold">24 Transactions</h2>
-                  <p className="text-sm text-muted-foreground">
-                    Your transactions for the last 7 days
-                  </p>
-                </div>
-                <div className="flex gap-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="rounded-full bg-[#EFF1F6]"
-                    onClick={() => setFilterOpen(true)}
-                  >
-                    Filter
-                    <img src={filter} alt="filter" />
-                  </Button>
-                  <Button className="rounded-full bg-[#EFF1F6]" variant="outline" size="sm">
-                    Export list
-                    <Download className="w-4 h-4 mr-2" />
-                  </Button>
-                </div>
-              </div>
+   <div className="bg-card rounded-2xl p-4 sm:p-6 md:p-8 shadow-sm w-[95%] sm:w-[90%] md:w-[85%] m-auto">
+  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+    <div className="text-center md:text-start">
+      <h2 className="text-lg sm:text-xl font-semibold">24 Transactions</h2>
+      <p className="text-xs sm:text-sm text-muted-foreground">
+        Your transactions for the last 7 days
+      </p>
+    </div>
 
-              <TransactionList />
-            </div>
+    <div className="flex flex-wrap gap-2">
+      <Button
+        variant="outline"
+        size="sm"
+        className="rounded-full bg-[#EFF1F6] flex items-center gap-1"
+        onClick={() => setFilterOpen(true)}
+      >
+        Filter
+        <img src={filter} alt="filter" className="w-4 h-4" />
+      </Button>
+
+      <Button
+        className="rounded-full bg-[#EFF1F6] flex items-center gap-1"
+        variant="outline"
+        size="sm"
+      >
+        Export
+        <Download className="w-4 h-4" />
+      </Button>
+    </div>
+  </div>
+
+  <TransactionList />
+</div>
+
     </div>
   );
 };
