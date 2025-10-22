@@ -30,10 +30,10 @@ const Index = () => {
 
               <RevenueChart />
 
-              <div className="flex items-center justify-between text-xs text-muted-foreground mt-4">
+              {/* <div className="flex items-center justify-between text-xs text-muted-foreground mt-4">
                 <span>Apr 1, 2022</span>
                 <span>Apr 30, 2022</span>
-              </div>
+              </div> */}
             </div>
 
             
@@ -85,7 +85,7 @@ const Index = () => {
       </p>
     </div>
 
-    <div className="flex flex-wrap gap-2">
+    <div className="flex md:justify-normal justify-center flex-wrap gap-2">
       <Button
         variant="outline"
         size="sm"
