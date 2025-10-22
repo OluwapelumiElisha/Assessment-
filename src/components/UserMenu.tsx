@@ -3,9 +3,9 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "../components/ui/dropdown-menu";
 import { Settings, ShoppingBag, Gift, Plug, Bug, RefreshCw, LogOut } from "lucide-react";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "../components/ui/avatar";
 import menu from '../assets/menu.svg'
 import { useEffect, useState } from "react";
 export const UserMenu = () => {
